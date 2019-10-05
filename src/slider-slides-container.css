@@ -1,0 +1,20 @@
+[data-its-slider-slides-container] {
+  position: relative;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  margin: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[data-its-slider-slides-container]::-webkit-scrollbar {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  [data-its-slider-slides-container] {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+  
