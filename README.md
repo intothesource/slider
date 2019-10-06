@@ -69,3 +69,9 @@ polyfill to your project.
 ```html
 <script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.js"></script>
 ```
+
+## Building
+
+```console
+$ npm run build
+```
