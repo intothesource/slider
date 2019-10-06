@@ -4,7 +4,13 @@
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "plugin:cypress/recommended",
+        "eslint:recommended"
+    ],
+    "plugins": [
+        "cypress"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
