@@ -78,7 +78,7 @@ export class SlidesContainer {
             document.removeEventListener('mousemove', onMousemove);
             document.removeEventListener('mouseup', onMouseup);
             const xMoved = xStart - xEnd;
-            if (xMoved < tolerance * -1) { this.goToNext(); }
+            if (xMoved < (tolerance * -1)) { this.goToNext(); }
             if (xMoved > tolerance) { this.goToPrev(); }
             xStart = 0;
             xEnd = 0;
