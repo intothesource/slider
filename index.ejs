@@ -102,6 +102,11 @@
         <script>
             const sliders = slider.Slider.init();
         </script>
+        <script>
+            [].slice.call(document.querySelectorAll('img')).forEach(function (img) {
+                img.draggable = false;
+            });
+        </script>
         <script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.js"></script>
     </body>
 </html>
