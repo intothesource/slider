@@ -75,3 +75,10 @@ polyfill to your project.
 ```console
 $ npm run build
 ```
+
+## Publishing changes
+
+```console
+$ npm i -g np
+$ np
+```
