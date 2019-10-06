@@ -26,24 +26,23 @@ Slider for sliding things.
 </script>
 ```
 
+For a more complete example: See [index.ejs](index.ejs).
+
 ## Progressive enhancement
 
 You'll want to make sure that the content of the slider doesn't jump around the
 page before the slider JS has fully loaded. To mitigate this, make sure to
 include the following CSS in your project CSS (or inline it on the page).
 
-```css
-[data-its-slider] {
-    display: block;
-    position: relative;
-}
+The following CSS is most of how this slider is supposed to work. The additional
+CSS and JS from this component is to make sure that the navigation buttons are
+activated/de-activated and scroll snapping is implemented for devices that 
+support it.
 
+```css
 [data-its-slider-slides-container] {
-    position: relative;
     display: flex;
     overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    margin: 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -57,6 +56,7 @@ include the following CSS in your project CSS (or inline it on the page).
         -webkit-overflow-scrolling: touch;
     }
 }
+
 ```
 
 ## Polyfill smooth scrolling
