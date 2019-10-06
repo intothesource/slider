@@ -1,4 +1,5 @@
 import './slider.css';
+import debounce from 'debounce';
 import { query } from './util/query';
 import { SlidesContainer } from './slider-slides-container';
 import { ButtonNext } from './slider-button-next';
@@ -38,7 +39,7 @@ export class Slider {
         this.slidesContainer = SlidesContainer.init({
             parent: element,
             selector: selectorSlidesContainer,
-            onScrollCallback: this.onScrollCallback.bind(this),
+            onScrollCallback: debounce(this.onScrollCallback.bind(this), 100),
             selectorSlide,
         })[0];
 
@@ -53,6 +54,8 @@ export class Slider {
             selector: selectorButtonPrev,
             onClick: this.onPrevClick.bind(this),
         })[0];
+
+        this.buttonActive();
     }
 
     /**
