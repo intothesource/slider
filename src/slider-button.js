@@ -40,9 +40,11 @@ export class Button {
 
         if (disabled === true) {
             this.element.setAttribute(ATTR_SLIDER_BUTTON_DISABLED, '');
+            this.element.setAttribute('aria-disabled', 'true');
             this.element.removeAttribute(ATTR_SLIDER_BUTTON_ENABLED);
         } else {
             this.element.removeAttribute(ATTR_SLIDER_BUTTON_DISABLED);
+            this.element.removeAttribute('aria-disabled', '');
             this.element.setAttribute(ATTR_SLIDER_BUTTON_ENABLED, '');
         }
     }
