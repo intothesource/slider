@@ -2,7 +2,7 @@
   "name": "@intothesource/slider",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/employee-slider.js",
+  "main": "dist/slider.js",
   "module": "src/index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/intothesource/employee-slider.git"
+    "url": "git+https://github.com/intothesource/slider.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/intothesource/employee-slider/issues"
+    "url": "https://github.com/intothesource/slider/issues"
   },
-  "homepage": "https://github.com/intothesource/employee-slider#readme",
+  "homepage": "https://github.com/intothesource/slider#readme",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
