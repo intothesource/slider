@@ -55,20 +55,11 @@ export class SlidesContainer {
 
         this.bounds = this.calculateBounds();
 
-        // ---------------------------------------------------------------------
-        // Relevant content items
-        // ---------------------------------------------------------------------
-
-        this.query = query(this.element);
-        this.anchors = this.query('a');
-        this.images = this.query('img');
-
         // Prevent dragging of certain content items to make sure that the faux
         // touch events with the mouse still work, instead if dragging an image
         // or an anchor element.
 
-        this.draggables = [...this.anchors, ...this.images];
-        this.draggables.forEach(el => el.draggable = false);
+        this.slides.forEach(slide => slide.disableDraggables());
 
         // ---------------------------------------------------------------------
         // Handle mouse drag gestures to emulate touch scrolling
@@ -83,9 +74,11 @@ export class SlidesContainer {
             document.addEventListener('mouseup', onMouseup);
             xStart = event.screenX;
             xEnd = event.screenX;
+            this.slides.forEach(slide => slide.enableClickables());
         };
 
         const onMousemove = (event) => {
+            this.slides.forEach(slide => slide.disableClickables());
             xEnd = event.screenX;
         };
 
@@ -93,8 +86,8 @@ export class SlidesContainer {
             document.removeEventListener('mousemove', onMousemove);
             document.removeEventListener('mouseup', onMouseup);
             const xMoved = xStart - xEnd;
-            if (xMoved < (tolerance * -1)) { this.goToNext(); }
-            if (xMoved > tolerance) { this.goToPrev(); }
+            if (xMoved > (tolerance * -1)) { this.goToNext(); }
+            if (xMoved < tolerance) { this.goToPrev(); }
             xStart = 0;
             xEnd = 0;
         };
