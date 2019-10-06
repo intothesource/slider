@@ -4,6 +4,10 @@
   "description": "",
   "main": "dist/slider.js",
   "module": "src/index.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist/slider.js",
     "src"
