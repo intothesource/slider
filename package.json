@@ -4,6 +4,10 @@
   "description": "",
   "main": "dist/slider.js",
   "module": "src/index.js",
+  "files": [
+    "dist/slider.js",
+    "src"
+  ],
   "scripts": {
     "build": "webpack --mode production",
     "start:dev": "webpack-dev-server --mode development",
