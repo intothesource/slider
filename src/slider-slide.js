@@ -15,7 +15,19 @@ export class Slide {
             new this(element, constructorOptions));
     }
 
+    /**
+     * @param {HTMLElement} element 
+     */
     constructor(element) {
         this.element = element;
+    }
+
+    get rect() {
+        return this.element.getBoundingClientRect();
+    }
+
+    get width() {
+        const { width } = this.rect;
+        return width;
     }
 }

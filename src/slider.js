@@ -1,13 +1,12 @@
 import './slider.css';
 import { query } from './util/query';
-import { Slide } from './slider-slide';
+import { SlidesContainer } from './slider-slides-container';
 import { ButtonNext } from './slider-button-next';
 import { ButtonPrev } from './slider-button-prev';
 import {
     SELECTOR_SLIDER, SELECTOR_SLIDER_SLIDE, SELECTOR_SLIDER_SLIDES_CONTAINER,
     SELECTOR_SLIDER_BUTTON_PREV, SELECTOR_SLIDER_BUTTON_NEXT,
 } from './constants';
-import { SlidesContainer } from './slider-slides-container';
 
 export class Slider {
 
@@ -28,10 +27,10 @@ export class Slider {
      */
     constructor(element, options = {}) {
         const {
-            selectorSlide = SELECTOR_SLIDER_SLIDE,
             selectorSlidesContainer = SELECTOR_SLIDER_SLIDES_CONTAINER,
             selectorButtonNext = SELECTOR_SLIDER_BUTTON_NEXT,
             selectorButtonPrev = SELECTOR_SLIDER_BUTTON_PREV,
+            selectorSlide = SELECTOR_SLIDER_SLIDE,
         } = options;
 
         this.element = element;
@@ -39,12 +38,9 @@ export class Slider {
         this.slidesContainer = SlidesContainer.init({
             parent: element,
             selector: selectorSlidesContainer,
+            onScrollCallback: this.onScrollCallback.bind(this),
+            selectorSlide,
         })[0];
-
-        this.slides = Slide.init({
-            parent: this.slidesContainer.element,
-            selector: selectorSlide,
-        });
 
         this.buttonNext = ButtonNext.init({
             parent: element,
@@ -57,36 +53,6 @@ export class Slider {
             selector: selectorButtonPrev,
             onClick: this.onPrevClick.bind(this),
         })[0];
-
-        this.containerWidth = this.element.getBoundingClientRect().width;
-        this.containerScrollWidth = this.element.scrollWidth;
-        this.employeeWidth = this.element.children[0].clientWidth;
-        this.scrollPosition = 0;
-
-        window.addEventListener('resize', this.onWindowResize.bind(this));
-        this.element.addEventListener('scroll', this.onScroll.bind(this));
-
-        this.setButtonActive();
-
-        console.log(this);
-    }
-
-    /**
-     * @param {number} left 
-     */
-    scrollTo(left) {
-        this.element.scrollBy({
-            behavior: 'smooth',
-            left: left,
-        });
-    }
-
-    goToNext() {
-        this.scrollTo(-this.slideWidth);
-    }
-
-    goToPrev() {
-        this.scrollTo(this.slideWidth);
     }
 
     /**
@@ -94,7 +60,7 @@ export class Slider {
      */
     onNextClick(event) {
         event.preventDefault();
-        this.goToNext();
+        this.slidesContainer.goToNext();
     }
 
     /**
@@ -102,30 +68,15 @@ export class Slider {
      */
     onPrevClick(event) {
         event.preventDefault();
-        this.goToPrev();
+        this.slidesContainer.goToPrev();
     }
 
-    // Window resize handler
-
-    onWindowResize() {
-        this.containerWidth = this.element.getBoundingClientRect().width;
-        this.employeeWidth = this.element.children[0].getBoundingClientRect().width;
+    buttonActive() {
+        this.buttonPrev.disabled = !this.slidesContainer.prevBounds;
+        this.buttonNext.disabled = this.slidesContainer.lastSlide.rect.right === this.slidesContainer.rect.right;
     }
 
-    // Scroll handler
-
-    onScroll() {
-        this.scrollPosition = this.element.scrollLeft;
-        this.setButtonActive();
-    }
-
-    setButtonActive() {
-        this.buttonPrev.disabled = this.scrollPosition === 0;
-        this.buttonNext.disabled = this.scrollPosition + this.containerWidth === this.containerScrollWidth;
-    }
-
-    setButtonVisible() {
-        this.buttonPrev.visible = this.scrollPosition === 0;
-        this.buttonNext.visible = this.scrollPosition + this.containerWidth === this.containerScrollWidth;
+    onScrollCallback() {
+        this.buttonActive();
     }
 }
