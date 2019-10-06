@@ -56,6 +56,21 @@ export class SlidesContainer {
         this.bounds = this.calculateBounds();
 
         // ---------------------------------------------------------------------
+        // Relevant content items
+        // ---------------------------------------------------------------------
+
+        this.query = query(this.element);
+        this.anchors = this.query('a');
+        this.images = this.query('img');
+
+        // Prevent dragging of certain content items to make sure that the faux
+        // touch events with the mouse still work, instead if dragging an image
+        // or an anchor element.
+
+        this.draggables = [...this.anchors, ...this.images];
+        this.draggables.forEach(el => el.draggable = false);
+
+        // ---------------------------------------------------------------------
         // Handle mouse drag gestures to emulate touch scrolling
         // ---------------------------------------------------------------------
 
