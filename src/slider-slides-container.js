@@ -54,6 +54,36 @@ export class SlidesContainer {
         });
 
         this.bounds = this.calculateBounds();
+
+        // ---------------------------------------------------------------------
+        // Handle mouse drag gestures to emulate touch scrolling
+        // ---------------------------------------------------------------------
+
+        const tolerance = 10;
+        let xStart = 0;
+        let xEnd = 0;
+
+        const onMousedown = (event) => {
+            document.addEventListener('mousemove', onMousemove);
+            document.addEventListener('mouseup', onMouseup);
+            xStart = event.screenX;
+        };
+
+        const onMousemove = (event) => {
+            xEnd = event.screenX;
+        };
+
+        const onMouseup = () => {
+            document.removeEventListener('mousemove', onMousemove);
+            document.removeEventListener('mouseup', onMouseup);
+            const xMoved = xStart - xEnd;
+            if (xMoved < tolerance * -1) { this.goToNext(); }
+            if (xMoved > tolerance) { this.goToPrev(); }
+            xStart = 0;
+            xEnd = 0;
+        };
+
+        this.element.addEventListener('mousedown', onMousedown);
     }
 
     get lastSlide() {
