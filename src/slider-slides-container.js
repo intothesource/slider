@@ -67,6 +67,7 @@ export class SlidesContainer {
             document.addEventListener('mousemove', onMousemove);
             document.addEventListener('mouseup', onMouseup);
             xStart = event.screenX;
+            xEnd = event.screenX;
         };
 
         const onMousemove = (event) => {
