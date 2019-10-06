@@ -1,5 +1,3 @@
-<img src="logo.svg" width="150">
-
 # @intothesource/slider
 
 Slider for sliding things.
