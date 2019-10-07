@@ -65,3 +65,4 @@ dist/
 
 # cypress
 cypress/videos/
+cypress/screenshots/
