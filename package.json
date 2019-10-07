@@ -16,7 +16,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "build": "webpack --mode production",
-    "postbuild": "mkdir -p docs && cp -Rv dist/* docs",
+    "postbuild": "mkdir -p docs/photos && cp -Rv dist/* docs && cp -Rv photos/* docs/photos",
     "start:dev": "webpack-dev-server --mode development --port 8080",
     "test": "start-server-and-test start:dev http://localhost:8080 cy:run",
     "test:dev": "start-server-and-test start:dev http://localhost:8080 cy:open",
