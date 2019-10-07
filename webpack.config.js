@@ -42,6 +42,7 @@ module.exports = (env, argv) => {
             ],
         };
         case 'production': return {
+            devtool: 'source-map',
             ...config,
         };
     }
