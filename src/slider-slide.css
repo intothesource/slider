@@ -1,3 +1,23 @@
 [data-its-slider-slide] {
   scroll-snap-align: start;
 }
+
+[data-its-slider-slide][data-its-slider-slide-align="none"] {
+  scroll-snap-align: none;
+}
+
+[data-its-slider-slide][data-its-slider-slide-align="start"] {
+  scroll-snap-align: start;
+}
+
+[data-its-slider-slide][data-its-slider-slide-align="end"] {
+  scroll-snap-align: end;
+}
+
+[data-its-slider-slide][data-its-slider-slide-align="start end"] {
+  scroll-snap-align: start end;
+}
+
+[data-its-slider-slide][data-its-slider-slide-align="center"] {
+  scroll-snap-align: center;
+}

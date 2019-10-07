@@ -79,3 +79,9 @@ $ npm run build
 ```console
 $ npm run release -- [patch|minor|major]
 ```
+
+## Update the docs on https://intothesource.github.io/slider/
+
+```
+$ npm run deploy:gh-pages
+```
