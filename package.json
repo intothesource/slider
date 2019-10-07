@@ -16,7 +16,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "build": "webpack --mode production",
-    "start:dev": "webpack-dev-server --mode development",
+    "start:dev": "webpack-dev-server --mode development --port 8080",
     "test": "start-server-and-test start:dev http://localhost:8080 cy:run",
     "test:dev": "start-server-and-test start:dev http://localhost:8080 cy:open",
     "version": "npm run build",
