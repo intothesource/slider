@@ -26,7 +26,7 @@ Slider for sliding things.
 </script>
 ```
 
-For a more complete example: See [index.ejs](index.ejs).
+For a more complete example: See [index.ejs](examples/index.ejs).
 
 ## Progressive enhancement
 
