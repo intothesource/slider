@@ -27,6 +27,20 @@ const config = {
             },
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './examples/index.ejs',
+            filename: 'index.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: './examples/one.ejs',
+            filename: 'one.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: './examples/two.ejs',
+            filename: 'two.html',
+        })
+    ],
 };
 
 module.exports = (env, argv) => {
@@ -35,20 +49,6 @@ module.exports = (env, argv) => {
         case 'development': return {
             ...config,
             devtool: 'source-map',
-            plugins: [
-                new HtmlWebpackPlugin({
-                    template: './examples/index.ejs',
-                    filename: 'index.html',
-                }),
-                new HtmlWebpackPlugin({
-                    template: './examples/one.ejs',
-                    filename: 'one.html',
-                }),
-                new HtmlWebpackPlugin({
-                    template: './examples/two.ejs',
-                    filename: 'two.html',
-                })
-            ],
         };
         case 'production': return {
             devtool: 'source-map',
