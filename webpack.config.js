@@ -37,7 +37,12 @@ module.exports = (env, argv) => {
             devtool: 'source-map',
             plugins: [
                 new HtmlWebpackPlugin({
-                    template: './index.ejs'
+                    template: './index.ejs',
+                    filename: 'index.html',
+                }),
+                new HtmlWebpackPlugin({
+                    template: './single.ejs',
+                    filename: 'single.html',
                 })
             ],
         };
