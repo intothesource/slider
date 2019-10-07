@@ -7,6 +7,7 @@ context('Multi', () => {
 
     it('prev - should be disabled at start', () => {
         cy.get('[data-its-slider-button-prev]')
+            .should('be.visible')
             .should('be.disabled');
     });
 
@@ -15,6 +16,7 @@ context('Multi', () => {
             .click()
             .wait(1000)
             .get('[data-its-slider-button-prev]')
+            .should('be.visible')
             .should('not.be.disabled');
     });
 
@@ -30,6 +32,7 @@ context('Multi', () => {
             .wait(1000)
             .click()
             .wait(1000)
+            .should('be.visible')
             .should('be.disabled');
     });
 });

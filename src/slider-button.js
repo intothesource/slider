@@ -2,7 +2,7 @@ import { query } from './util/query';
 import { noop } from './util/noop';
 import {
     SELECTOR_SLIDER_BUTTON,
-    ATTR_SLIDER_BUTTON_DISABLED, ATTR_SLIDER_BUTTON_ENABLED,
+    ATTR_SLIDER_BUTTON_DISABLED, ATTR_SLIDER_BUTTON_ENABLED, ATTR_SLIDER_BUTTON_HIDDEN, ATTR_SLIDER_BUTTON_VISIBLE,
 } from './constants';
 
 export class Button {
@@ -46,6 +46,23 @@ export class Button {
             this.element.removeAttribute(ATTR_SLIDER_BUTTON_DISABLED);
             this.element.removeAttribute('aria-disabled', '');
             this.element.setAttribute(ATTR_SLIDER_BUTTON_ENABLED, '');
+        }
+    }
+
+    /**
+     * @param {boolean} hidden
+     */
+    set hidden(hidden) {
+        if ('hidden' in this.element) {
+            this.element.hidden = hidden;
+        }
+
+        if (hidden === true) {
+            this.element.setAttribute(ATTR_SLIDER_BUTTON_HIDDEN, '');
+            this.element.removeAttribute(ATTR_SLIDER_BUTTON_VISIBLE);
+        } else {
+            this.element.removeAttribute(ATTR_SLIDER_BUTTON_HIDDEN);
+            this.element.setAttribute(ATTR_SLIDER_BUTTON_VISIBLE, '');
         }
     }
 

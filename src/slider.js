@@ -75,8 +75,17 @@ export class Slider {
     }
 
     buttonActive() {
-        this.buttonPrev.disabled = this.slidesContainer.isAtStart;
-        this.buttonNext.disabled = this.slidesContainer.isAtEnd;
+        const { isAtEnd, isAtStart } = this.slidesContainer;
+
+        // Disable prev button if we're already at the start
+        this.buttonPrev.disabled = isAtStart;
+
+        // Disable next button if we're already at the end
+        this.buttonNext.disabled = isAtEnd;
+
+        // Disable next and prev button if there's nothing to scroll
+        this.buttonNext.hidden = isAtStart && isAtEnd;
+        this.buttonPrev.hidden = isAtStart && isAtEnd;
     }
 
     onScrollCallback() {
