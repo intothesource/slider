@@ -78,5 +78,5 @@ $ npm run build
 
 ```console
 $ npm i -g np
-$ np
+$ np [patch|minor|major]
 ```
