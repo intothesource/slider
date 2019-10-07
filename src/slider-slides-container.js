@@ -132,6 +132,14 @@ export class SlidesContainer {
         return this.bounds[currentBoundsIndex - 1];
     }
 
+    get isAtStart() {
+        return !this.prevBounds;
+    }
+
+    get isAtEnd() {
+        return this.lastSlide.rect.right <= this.rect.right;
+    }
+
     goToNext() {
         const { nextBounds } = this;
         if (nextBounds) {

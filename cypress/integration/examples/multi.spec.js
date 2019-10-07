@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-context('Actions', () => {
+context('Multi', () => {
     beforeEach(() => {
         cy.visit('http://localhost:8080/');
     });
@@ -32,5 +32,4 @@ context('Actions', () => {
             .wait(1000)
             .should('be.disabled');
     });
-
 });

@@ -75,8 +75,8 @@ export class Slider {
     }
 
     buttonActive() {
-        this.buttonPrev.disabled = !this.slidesContainer.prevBounds;
-        this.buttonNext.disabled = this.slidesContainer.lastSlide.rect.right === this.slidesContainer.rect.right;
+        this.buttonPrev.disabled = this.slidesContainer.isAtStart;
+        this.buttonNext.disabled = this.slidesContainer.isAtEnd;
     }
 
     onScrollCallback() {
