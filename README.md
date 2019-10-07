@@ -77,6 +77,5 @@ $ npm run build
 ## Publishing changes
 
 ```console
-$ npm i -g np
-$ np [patch|minor|major]
+$ npm run release -- [patch|minor|major]
 ```
