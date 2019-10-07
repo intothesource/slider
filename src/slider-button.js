@@ -30,10 +30,16 @@ export class Button {
         this.element.addEventListener('click', this.onClick);
     }
 
+    get disabled() {
+        return this.$disabled;
+    }
+
     /**
      * @param {boolean} disabled
      */
     set disabled(disabled) {
+        this.$disabled = disabled;
+
         if ('disabled' in this.element) {
             this.element.disabled = disabled;
         }
@@ -49,10 +55,16 @@ export class Button {
         }
     }
 
+    get hidden() {
+        return this.$hidden;
+    }
+
     /**
      * @param {boolean} hidden
      */
     set hidden(hidden) {
+        this.$hidden = hidden;
+
         if ('hidden' in this.element) {
             this.element.hidden = hidden;
         }

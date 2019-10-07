@@ -84,8 +84,8 @@ export class Slider {
         this.buttonNext.disabled = isAtEnd;
 
         // Disable next and prev button if there's nothing to scroll
-        this.buttonNext.hidden = isAtStart && isAtEnd;
-        this.buttonPrev.hidden = isAtStart && isAtEnd;
+        this.buttonNext.hidden = this.buttonPrev.disabled && this.buttonNext.disabled;
+        this.buttonPrev.hidden = this.buttonPrev.disabled && this.buttonNext.disabled;
     }
 
     onScrollCallback() {
