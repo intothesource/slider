@@ -1,4 +1,5 @@
 export const SELECTOR_SLIDER = '[data-its-slider]';
+export const ATTR_SLIDER_ENHANCED = 'data-its-slider-enhanced';
 export const SELECTOR_SLIDER_SLIDES_CONTAINER = '[data-its-slider-slides-container]';
 export const SELECTOR_SLIDER_SLIDE = '[data-its-slider-slide]';
 export const SELECTOR_SLIDER_BUTTON = '[data-its-slider-button]';

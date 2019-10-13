@@ -6,7 +6,7 @@ import { ButtonNext } from './slider-button-next';
 import { ButtonPrev } from './slider-button-prev';
 import {
     SELECTOR_SLIDER, SELECTOR_SLIDER_SLIDE, SELECTOR_SLIDER_SLIDES_CONTAINER,
-    SELECTOR_SLIDER_BUTTON_PREV, SELECTOR_SLIDER_BUTTON_NEXT,
+    SELECTOR_SLIDER_BUTTON_PREV, SELECTOR_SLIDER_BUTTON_NEXT, ATTR_SLIDER_ENHANCED,
 } from './constants';
 
 export class Slider {
@@ -56,6 +56,8 @@ export class Slider {
         })[0];
 
         this.buttonActive();
+
+        this.element.setAttribute(ATTR_SLIDER_ENHANCED, '');
     }
 
     /**
