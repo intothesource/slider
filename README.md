@@ -88,7 +88,8 @@ $ npm run build
 ## Publishing changes
 
 ```console
-$ npm run release -- [patch|minor|major]
+$ npm version [patch|minor|major]
+$ npm publish
 ```
 
 ## Update the docs on https://intothesource.github.io/slider/
