@@ -36,7 +36,7 @@ include the following CSS in your project CSS (or inline it on the page).
 
 The following CSS is most of how this slider is supposed to work. The additional
 CSS and JS from this component is to make sure that the navigation buttons are
-activated/de-activated and scroll snapping is implemented for devices that 
+activated/de-activated and scroll snapping is implemented for devices that
 support it.
 
 ```css
@@ -56,7 +56,16 @@ support it.
         -webkit-overflow-scrolling: touch;
     }
 }
+```
 
+The plugin adds a `data-its-slider-slides-container-enhanced` attribute after
+it's been initialized. If you want to hide the navigation buttons until they're
+ready to use (or if JavaScript is even enabled):
+
+```css
+[data-its-slider-slides-container]:not([data-its-slider-slides-container-enhanced]) data-its-slider-button {
+    display: none;
+}
 ```
 
 ## Polyfill smooth scrolling
