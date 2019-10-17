@@ -58,9 +58,9 @@ support it.
 }
 ```
 
-The plugin adds a `data-its-slider-slides-container-enhanced` attribute after
-it's been initialized. If you want to hide the navigation buttons until they're
-ready to use (or if JavaScript is even enabled):
+The plugin adds a `data-its-slider-enhanced` attribute after it's been
+initialized. If you want to hide the navigation buttons until they're ready to
+use (or if JavaScript is even enabled):
 
 ```css
 [data-its-slider]:not([data-its-slider-enhanced]) [data-its-slider-button] {
@@ -74,7 +74,9 @@ If you want Safari and IE to use smooth scrolling, you'll need to include a
 polyfill to your project.
 
 ```html
-<script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.js"></script>
+<script 
+    src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.js">
+</script>
 ```
 
 ## Building
